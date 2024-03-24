@@ -1,3 +1,63 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": { "es2021": true },
+  "extends": [
+    "eslint:recommended",
+    "./configs/eslint/ts.eslintrc.json",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "simple-import-sort", "sort-keys-fix"],
+  "rules": {
+    // Formatting
+    "lines-between-class-members": "warn",
+    "no-case-declarations": "warn",
+    "no-extra-boolean-cast": "warn",
+    "no-inner-declarations": "warn",
+    "no-var": "warn",
+    // Logic
+    "no-await-in-loop": "warn",
+    "no-constant-condition": "warn",
+    "no-duplicate-case": "warn",
+    "no-empty-pattern": "warn",
+    "no-prototype-builtins": "warn",
+    "no-self-assign": "warn",
+    "no-unreachable": "warn",
+    "no-unneeded-ternary": "warn",
+    "no-unsafe-optional-chaining": "warn",
+    "no-unused-expressions": "warn",
+    "no-useless-catch": "warn",
+    "no-useless-escape": "warn",
+    "prefer-const": "warn",
+    "simple-import-sort/imports": "warn",
+    "sort-keys": [
+      "warn",
+      "asc",
+      { "caseSensitive": false, "natural": true, "minKeys": 2 }
+    ],
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-unnecessary-condition": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    // dangerous. Can incorrectly remap types
+    "@typescript-eslint/method-signature-style": "off",
+    // dangerous. Can incorrectly recast types
+    "@typescript-eslint/prefer-reduce-type-parameter": "off",
+    // consistent type imports breaks eslint on TS versions higher than 5.0
+    "@typescript-eslint/consistent-type-imports": "off",
+    // import separations
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "basePath": ".",
+        "zones": [{ "target": "./frontend", "from": "./backend" }]
+      }
+    ]
+  },
+  "ignorePatterns": ["*.test.ts", "*mock*", "*dist*"]
 }

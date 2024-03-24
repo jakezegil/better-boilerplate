@@ -1,0 +1,9 @@
+# Ignore artifacts
+dist
+node_modules
+prisma/generated
+**/generated.*
+package-lock.json
+
+# let the pretty format commit hook do its thing
+**/*.json

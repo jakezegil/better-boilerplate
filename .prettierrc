@@ -1,0 +1,12 @@
+{
+  "arrowParens": "always",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ["*.interface.ts", "*.d.ts"],
+      "options": { "printWidth": 140 }
+    }
+  ]
+}
